@@ -1,0 +1,26 @@
+
+
+
+	// // Js-images-Slider
+	let $slider = $( '.js-blog-slider' );
+	if ( $slider.length ) {
+		$slider.each( function (  ) {
+			let counted = $( this ).children().length;
+
+			$( this ).slick( {
+				rows: 0,
+				dots: false,
+				arrows: false,
+				infinite: true,
+				speed: 1000,
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				variableWidth: true,
+			} );
+
+			$( '.number' ).append( `<div class="counter"><span class="js-current-item">1</span>/<span>${counted}</span></div>` );
+				$( this ).on( 'afterChange', function ( event, slick, currentSlide ) {
+				$( '.js-current-item' ).text( currentSlide + 1 );
+			} );
+		} );
+	}
